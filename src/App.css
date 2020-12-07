@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  margin: 10px;
+  padding: 1px;
+  border: 2px solid #333;
+}
+
+.nav {
+  text-align: center;
+  margin: 10px;
+  padding: 1px;
+  border: 2px solid #333;
+  list-style: none;
+}
