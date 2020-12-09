@@ -17,13 +17,22 @@ body {
 .article-list {
   text-align: center;
   margin: 10px;
-  padding: 1px;
+  padding: 2px;
   border: 2px solid #333;
   list-style: none;
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: center;
+  text-decoration: none;
+}
+
+.user-comment {
+  margin-top: 2px;
+  padding-top: 10px;
+  padding-left: 10px;
+  text-align: left;
+  font-weight: 150;
 }
 
 .comments-list {
@@ -49,7 +58,7 @@ li {
   float: left;
 }
 
-.element {
+.nav-element {
   border-right: 1px solid #bbb;
   display: block;
   font-size: 15px;
@@ -75,4 +84,14 @@ li {
 
 .right-element:hover {
   color: red;
+}
+
+.footer {
+  text-align: left;
+  font-size: 14px;
+}
+
+.error-img {
+  position: relative;
+  width: 100%;
 }

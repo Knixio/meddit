@@ -2,27 +2,27 @@ import React, { Component } from 'react';
 import { getArticles } from '../api';
 import { Link } from '@reach/router';
 import Loading from '../components/Loading';
-class Nav extends Component {
+
+class FilteredTopics extends Component {
   state = {
     articles: [],
     isLoading: true,
   };
 
   componentDidMount() {
-    getArticles().then((articles) => {
-      //console.log(articles);
+    getArticles(this.props.singleTopic).then((articles) => {
       this.setState({ articles, isLoading: false });
     });
   }
 
   render() {
     const { articles, isLoading } = this.state;
-    //console.log(articles);
     if (isLoading) {
       return <Loading />;
     } else {
       return (
         <ul>
+          <h3>{`${this.props.singleTopic} topics`}</h3>
           {articles.map((article) => {
             return (
               <Link
@@ -40,6 +40,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
-
-//State: articles array, number of upvotes (for sorting),
+export default FilteredTopics;

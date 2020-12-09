@@ -1,12 +1,20 @@
 import React from 'react';
+import { Link } from '@reach/router';
 
 const Nav = () => {
   return (
     <nav>
       <ul className="nav-bar">
-        <li className="element">HOME</li>
-        <li className="element">NEWS</li>
-        <li className="element">TRENDING</li>
+        <li>
+          <Link className="nav-element" to="/articles">
+            HOME
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-element" to="/topics">
+            TOPICS
+          </Link>
+        </li>
         <li className="right-element">LOGIN/LOGOUT</li>
       </ul>
     </nav>
