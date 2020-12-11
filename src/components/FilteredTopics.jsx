@@ -28,10 +28,12 @@ class FilteredTopics extends Component {
             return (
               <>
                 <ul className="articles-votes">
-                  <ArticleVoter
-                    votes={article.votes}
-                    article_id={article.article_id}
-                  />
+                  <li>
+                    <ArticleVoter
+                      votes={article.votes}
+                      article_id={article.article_id}
+                    />
+                  </li>
                 </ul>
                 <Link
                   className="article-list"

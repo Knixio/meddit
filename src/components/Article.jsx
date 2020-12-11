@@ -14,7 +14,6 @@ class Article extends Component {
   };
 
   componentDidMount() {
-    //console.log(this.props.article);
     getArticle(this.props.article_id)
       .then((article) => {
         this.setState({ article, isLoading: false });
@@ -64,7 +63,6 @@ class Article extends Component {
             <Voter votes={article.votes} article_id={article.article_id} />
           </div>
           <h3>Comments Section</h3>
-          {/* insert comment adder here */}
           <Comments article_id={this.props.article_id} />
           <footer>
             <ul className="footer-ul">

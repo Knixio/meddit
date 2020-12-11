@@ -13,21 +13,18 @@ class Nav extends Component {
 
   componentDidMount() {
     getArticles().then((articles) => {
-      //console.log(articles);
       this.setState({ articles, isLoading: false });
     });
   }
 
   render() {
     const { articles, isLoading } = this.state;
-    //console.log(articles);
     if (isLoading) {
       return <Loading />;
     } else {
       return (
         <ul>
           {articles.map((article) => {
-            console.log(article);
             return (
               <>
                 <ul className="articles-votes">
