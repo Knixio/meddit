@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { getArticle } from '../api';
+import { getArticle, upVoteArticle } from '../api';
 import Comments from './Comments';
 import Loading from '../components/Loading';
 import ErrorMessage from '../components/ErrorMessage';
+import Voter from '../components/Voter';
 
 class Article extends Component {
   state = {
@@ -30,8 +31,25 @@ class Article extends Component {
       });
   }
 
+  handleClick = (event) => {
+    upVoteArticle(this.state.article.article_id).then(() => {
+      this.setState((currentState) => {
+        const updatedState = {
+          article: {
+            ...currentState.article,
+            votes: currentState.article.votes + 1,
+          },
+        };
+        return updatedState;
+      });
+    });
+  };
+
   render() {
     const { article, isLoading, hasError, errorMessage } = this.state;
+    const newDate = article.created_at;
+    const date = new Date(`${newDate}`);
+
     if (isLoading) {
       return <Loading />;
     } else if (hasError) {
@@ -42,13 +60,21 @@ class Article extends Component {
           <h2>{article.title}</h2>
           <h3>This article is about {article.topic}</h3>
           <p>{article.body}</p>
-          <p>This article was written by user: {article.author}</p>
-          <p>Number of votes: {article.votes}👍</p>
+          <div>
+            <Voter votes={article.votes} article_id={article.article_id} />
+          </div>
           <h3>Comments Section</h3>
-          <Comments article_id={this.props.article_id} />
           {/* insert comment adder here */}
-          <footer className="footer">
-            This article was created at: {article.created_at}
+          <Comments article_id={this.props.article_id} />
+          <footer>
+            <ul className="footer-ul">
+              <li className="li-right">
+                This article was written by user: {article.author}
+              </li>
+              <li className="li-left">
+                This article was created on: {date.toString()}
+              </li>
+            </ul>
           </footer>
         </div>
       );
@@ -59,3 +85,10 @@ class Article extends Component {
 export default Article;
 
 //State: number of comments, comments array, upvote counter, downvote counter
+
+// <footer className="footer-right">
+// This article was written by user: {article.author}
+// </footer>
+// <footer className="footer-left">
+// This article was created on: {date.toString()}
+// </footer>

@@ -29,3 +29,16 @@ export const getTopics = () => {
     return data.topics;
   });
 };
+
+export const upVoteArticle = (article_id, voteCount) => {
+  return ncNewsApi.patch(`/articles/${article_id}`, { inc_votes: voteCount });
+};
+
+export const postComment = (newCommentToPost, article_id) => {
+  console.log(newCommentToPost);
+  return ncNewsApi
+    .post(`/articles/${article_id}/comments`, newCommentToPost)
+    .then(({ data }) => {
+      return data.comment;
+    });
+};

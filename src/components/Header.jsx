@@ -2,7 +2,7 @@ import React from 'react';
 const Header = () => {
   return (
     <div>
-      <h2>NC-News</h2>
+      <h2>Tabula Rasa</h2>
     </div>
   );
 };

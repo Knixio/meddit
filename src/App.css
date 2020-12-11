@@ -3,28 +3,29 @@ body {
   font-family: 'Quicksand', sans-serif;
   font-size: 20px;
   line-height: 1.3;
-  color: #333333;
-  background-color: rgba(99, 99, 99, 0.288);
+  color: #ffffff;
+  background-color: #333;
 }
 
 .App {
   text-align: center;
   margin: 10px;
   padding: 1px;
-  border: 2px solid #333;
+  border: 2px solid#ffffff;
 }
 
 .article-list {
   text-align: center;
   margin: 10px;
   padding: 2px;
-  border: 2px solid #333;
+  border: 2px solid rgba(202, 202, 202, 0.884);
   list-style: none;
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: center;
   text-decoration: none;
+  color: #ffffff;
 }
 
 .user-comment {
@@ -39,7 +40,7 @@ body {
   text-align: center;
   margin: 10px;
   padding: 1px;
-  border: 2px solid #333;
+  border: 2px solid#ffffff;
   list-style: none;
   display: flex;
   position: relative;
@@ -47,12 +48,19 @@ body {
   justify-content: center;
 }
 
+.comment-footer {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  display: block;
+  text-align: right;
+}
 .nav-bar {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: rgba(121, 121, 121, 0.863);
 }
 li {
   float: left;
@@ -62,7 +70,7 @@ li {
   border-right: 1px solid #bbb;
   display: block;
   font-size: 15px;
-  color: white;
+  color: rgb(202, 202, 202);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -86,12 +94,53 @@ li {
   color: red;
 }
 
-.footer {
-  text-align: left;
-  font-size: 14px;
-}
-
 .error-img {
   position: relative;
   width: 100%;
+}
+
+.footer-ul {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.li-right {
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  float: right;
+}
+
+.li-left {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+  float: left;
+}
+
+.articles-votes {
+  list-style: none;
+  margin-left: 0vh;
+  padding: 0;
+  position: relative;
+}
+
+.down-vote {
+  color: rgb(245, 155, 21);
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 80%;
+  background-color: inherit;
+}
+
+.up-vote {
+  color: rgb(245, 155, 21);
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 80%;
+  background-color: inherit;
 }

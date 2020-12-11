@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getArticles } from '../api';
 import { Link } from '@reach/router';
 import Loading from '../components/Loading';
+import ArticleVoter from '../components/ArticlesVoter';
 
 class FilteredTopics extends Component {
   state = {
@@ -25,13 +26,21 @@ class FilteredTopics extends Component {
           <h3>{`${this.props.singleTopic} topics`}</h3>
           {articles.map((article) => {
             return (
-              <Link
-                className="article-list"
-                to={`/articles/${article.article_id}`}
-                key={article.article_id}
-              >
-                {article.title}
-              </Link>
+              <>
+                <ul className="articles-votes">
+                  <ArticleVoter
+                    votes={article.votes}
+                    article_id={article.article_id}
+                  />
+                </ul>
+                <Link
+                  className="article-list"
+                  to={`/articles/${article.article_id}`}
+                  key={article.article_id}
+                >
+                  {article.title}
+                </Link>
+              </>
             );
           })}
         </ul>
